@@ -132,9 +132,7 @@ run_model_execution.py
 *.swp
 *.bak
 *~
-docker_images/amdgt/dgl_2.5.0_cu124.tar.gz# Ignore large data
 datasets/
-docker_images/
 *.tif
 *.csv
 *.h5ad
