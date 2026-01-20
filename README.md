@@ -149,3 +149,7 @@ MARBLE/
 └── infrastructure/          # MCP server containers
 ```
 
+## Sample Report
+
+A sample execution report is available [here](https://sslim-aidrug.github.io/MARBLE/).
+
