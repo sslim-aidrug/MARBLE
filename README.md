@@ -71,14 +71,16 @@ USER_ID=$(whoami)
 ./docker_images/build.sh
 ```
 
-### 2-1. Download Model Weights (dlm-dti)
+### 2-1. Download Model Weights & Cache
 
 Large model weight files are not included in the repository. Download them from [Google Drive](https://drive.google.com/drive/folders/1NpdWpoRU5MSNTGGHkYOpr-2GtORaL7t2?usp=drive_link) and place them in the following directories:
 
 ```
-docker_images/dlm-dti/
-├── weights/          # Download from Google Drive
-└── prot_feat/        # Download from Google Drive (*.pkl files)
+MARBLE/
+├── hf_cache/                     # HuggingFace cache (place in project root)
+└── docker_images/dlm-dti/
+    ├── weights/                  # Model weights
+    └── prot_feat/                # Protein features (*.pkl files)
 ```
 
 ### 3. Start MCP Servers
