@@ -4,7 +4,8 @@
 
 MARBLE is an execution-stable autonomous framework for bioinformatics model refinement that utilizes multi-agent debate and performance-grounded reasoning.
 
-![MARBLE Overview](docs/overview.png)
+<img width="684" height="535" alt="image" src="https://github.com/user-attachments/assets/837d65b9-0411-4e24-b92d-8d1b00ac3e4c" />
+
 
 ## Requirements
 
