@@ -7,7 +7,7 @@ hf_cache/
 __pycache__/
 *.py[cod]
 *$py.class
-output/
+
 # C extensions
 *.so
 # backup/
@@ -30,7 +30,6 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-backup/
 
 # Virtual environments
 .venv
@@ -98,12 +97,6 @@ experiments/drp_framework/input_raw_data
 experiments/drp_framework/runs
 claudedocs
 
-# Legacy and backup directories
-legacy/
-input_raw_data/
-scripts/
-
-
 # Model checkpoints and training artifacts
 checkpoints/
 runs/
@@ -132,7 +125,10 @@ run_model_execution.py
 *.swp
 *.bak
 *~
-datasets/
 *.tif
 *.csv
 *.h5ad
+
+# Large model files (dlm-dti)
+docker_images/dlm-dti/weights/
+docker_images/dlm-dti/prot_feat/*.pkl

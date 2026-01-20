@@ -1,0 +1,50 @@
+# Refactored DLM-DTI configuration
+
+# Never touch (data loading logic lives in src/utils/data.py)
+data:
+  base_path: /workspace/datasets/dlm-dti # Never touch (docker test graph mount path)
+  dataset: drugban # Can touch: DAVIS, BindingDB, BIOSNAP, merged, drugban
+  prot_length:
+    teacher: 545 # Never touch: must match prot_feat/{len}_cls.pkl
+    student: 545 # Can touch: must match protein_encoder.max_length
+
+# Never touch
+model:
+  name: DLM-DTI
+  version: "1.0"
+
+  # Can touch (use *_other only if implemented)
+  drug_encoder:
+    type: drug_encoder_dlm # Registry: drug_encoder_dlm, drug_encoder_other
+    pretrained_name: seyonec/ChemBERTa-zinc-base-v1 # Can touch
+    freeze_embeddings: true # Can touch
+    freeze_layers: 6 # Can touch
+
+  # Can touch (use *_other only if implemented)
+  protein_encoder:
+    type: protein_encoder_dlm # Registry: protein_encoder_dlm, protein_encoder_other
+    tokenizer_name: Rostlab/prot_bert_bfd # Can touch
+    max_length: 545 # Can touch: must match data.prot_length.student
+    hidden_size: 1024 # Can touch
+    num_hidden_layers: 2 # Can touch
+    num_attention_heads: 16 # Can touch
+    intermediate_size: 4096 # Can touch
+    hidden_act: gelu # Can touch
+
+  # Can touch (decoder_other is a template only)
+  decoder:
+    type: decoder_dlm # Registry: decoder_dlm, decoder_other
+    hidden_dim: 1024 # Can touch
+    teacher_dim: 1024 # Never touch: must match prot_feat dimension
+    dropout: 0.1 # Can touch
+    learnable_lambda: true # Can touch
+    fixed_lambda: -1 # Can touch (0~1 when learnable_lambda is false)
+
+# Can touch
+training:
+  device: 0 # Can touch
+  batch_size: 32 # Can touch
+  num_workers: 16 # Can touch
+  epochs: 50 # Can touch
+  learning_rate: 0.0001 # Can touch
+  precision: 16 # Can touch
